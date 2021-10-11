@@ -1,0 +1,48 @@
+1. CREATE TABLE staff (num_ID int NOT NULL,staffID int NOT NULL, pass_word VARCHAR (255) NOT NULL, PRIMARY KEY(num_ID));
+
+2. CREATE TABLE lecturer (lecturer_ID int NOT NULL,lecturer_name varchar(45) NOT NULL, lecturer_faculty varchar(255), lecturer_phoneno int not null, lecturer_roomno varchar(45) not null, lecturer_email varchar(45) not null, lecturer_pwd VARCHAR (255) NOT NULL, PRIMARY KEY(lecturer_ID));
+
+3. INSERT INTO admin (admin_ID, admin_password) VALUES ("root","toor");
+
+4. ALTER TABLE admin; add (admin_name varchar(45) NOT NULL, admin_faculty varchar(255), admin_phoneno int not null, admin_roomno varchar(45) not null, admin_email varchar(45) not null;
+
+5. 	ALTER TABLE admin 
+	ADD admin_name varchar(45) NOT NULL;
+
+6. ALTER TABLE admin 
+ADD faculty_code varchar(45) NOT NULL
+FOREIGN KEY (faculty_code) REFERENCES faculty(faculty_code);
+
+7. ALTER TABLE admin 
+ADD FOREIGN KEY (faculty_code) REFERENCES faculty(faculty_code);
+
+8. INSERT INTO admin (admin_ID, admin_password, admin_name, admin_faculty, admin_phoneno, admin_roomno, admin_email,  faculty_code) VALUES (2017007700, "toor", "Admin", null, null, null, null, "FBM");
+
+9. CREATE TABLE groups (group_name varchar(25), PRIMARY KEY(group_name));
+
+
+
+
+
+10. CREATE TABLE summon (summon_ID int NOT NULL, Tarikh VARCHAR (255) NOT NULL, staff_ID int NOT NULL, matric_no int NOT NULL, LLID int NOT NULL, KPID int NOT NULL, PRIMARY KEY(summon_ID));
+
+11. ALTER TABLE summon 
+ADD FOREIGN KEY (staff_ID) REFERENCES staff(staff_ID)
+
+12. ALTER TABLE summon 
+ADD FOREIGN KEY (fault_ID) REFERENCES studFault(fault_ID)
+
+13. ALTER TABLE summon 
+ADD FOREIGN KEY (matric_no) REFERENCES student(matric_no)
+
+14. CREATE TABLE studFault (fault_ID int not null, des varchar(255), PRIMARY KEY(fault_ID));
+
+15. ALTER TABLE summon DROP FOREIGN KEY summon_ibfk_2
+
+16. CREATE TABLE staff (staff_ID int NOT NULL, pass_word VARCHAR (255) NOT NULL, PRIMARY KEY(staff_ID));
+
+17. CREATE TABLE student (matric_no int not null, name varchar(255) not null, ic_number varchar(255) not null, address varchar(255) not null, phone_no int null, birthdate date, gender varchar(255), PRIMARY KEY(matric_no));
+
+18 ALTER TABLE student
+ADD faculty varchar(255) not null; 
+
